@@ -10,17 +10,17 @@ const https = require('https');
 
 //const privateKey = fs.readFileSync(process.env.PRIVATE_KEY, 'utf8')
 //const certificate = fs.readFileSync(process.env.CERTIFICATE, 'utf8')
-const privateKey = fs.readFileSync('./file.pem', 'utf8')
+/*const privateKey = fs.readFileSync('./file.pem', 'utf8')
 const certificate = fs.readFileSync('./file.crt', 'utf8')
 const credentials = {
     key: privateKey, 
     cert: certificate, 
     passphrase: process.env.PASSPHRASE
-}
+}*/
 
-//const credentials = {}
-
+const credentials = {}
 const server = https.createServer(credentials, app);
+
 
 const io = require("socket.io")(server, {
   cors: {
@@ -37,9 +37,11 @@ const io = require("socket.io")(server, {
 //var port =  10014;
 
 //const ip = "82.98.178.187";
-const port =  12726;
+//const port =  12726;
 //const port =  0;
 //const port =  3000;
+
+const port = 8443; // openshift port
 
 
 // --------------------------------------------------------------------------------------------------------
